@@ -12,19 +12,23 @@ def menu_inicial():
     modo: modo de jogo, (1) jogador vs jogador ou (2) jogador vs IA 
     '''
 
-def configurar_tabuleiro():
+
+def configurar_tabuleiro(tamanho):
      '''
      — para criar matrizes.
+     parametros: tamanho - tamanho do tabuleiro, por ex. 10 para matriz 10 x 10
+     Retorna: 2 matrizes (tabuleiroNormal, tabuleiroAtaque)
      '''
-def posicionar_navios():
+
+def posicionar_navios(tabuleiroNormal, tabuleiroAtaque):
      '''
      — para permitir o posicionamento manual.
 '''
-def mostrar_tabuleiro():
+def mostrar_tabuleiro(tabuleiroNormal, tabuleiroAtaque):
      '''
      — para imprimir as matrizes formatadas.
 '''
-def realizar_ataque():
+def realizar_ataque(tabuleiroNormal, tabuleiroAtaque):
      '''
      — para processar os ataques e atualizar matrizes.
 '''
