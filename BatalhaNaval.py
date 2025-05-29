@@ -18,6 +18,8 @@ def configurar_tabuleiro(tamanho):
      — para criar matrizes.
      parametros: tamanho - tamanho do tabuleiro, por ex. 10 para matriz 10 x 10
      Retorna: 2 matrizes (tabuleiroNormal, tabuleiroAtaque)
+     tabuleiroNormal: Representa o próprio tabuleiro do jogador, onde estão posicionados seus navios e os danos sofridos por eles (exemplo: posições atingidas).
+     tabuleiroAtaque: Representa o registro dos ataques que o jogador realizou no adversário, mostrando onde acertou, errou ou ainda não atacou.
      '''
 
 def posicionar_navios(tabuleiroNormal, tabuleiroAtaque):
