@@ -3,8 +3,8 @@
 # configurações
 
 
-TamanhoBarco = 1  # tamanho do barco
-TamanhoMinimo = 2 # tamanho mínimo do tabuleiro
+TamanhoBarco = 3  # tamanho do barco
+TamanhoMinimo = 10 # tamanho mínimo do tabuleiro
 TamanhoMaximo = 26 # tamanho máximo do tabuleiro (de preferência no MÁXIMO 26 pra não passar as letras do alfabeto)
 
 
@@ -14,6 +14,8 @@ TamanhoMaximo = 26 # tamanho máximo do tabuleiro (de preferência no MÁXIMO 26
 import random
 import os
 import platform
+from colorama import init, Fore, Back, Style
+init(autoreset=True)
 
 def clear():
     if platform.system() == "Windows":
@@ -39,7 +41,7 @@ def menu():
     return tamanho, int(modo)
 
 def CriarBoard(tamanho):
-    return [['~' for _ in range(tamanho)] for _ in range(tamanho)]
+    return [[Back.BLUE + '~' for _ in range(tamanho)] for _ in range(tamanho)]
 
 def PrintBoard(tabuleiro):
     letras = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
@@ -86,26 +88,26 @@ def realizar_ataque(tabuleiro_alvo, tabuleiro_tiros):
     clear()
     if tabuleiro_alvo[linha][coluna] == 'n':
         print("acertou!\n")
-        tabuleiro_alvo[linha][coluna] = 'X'
-        tabuleiro_tiros[linha][coluna] = 'X'
+        tabuleiro_alvo[linha][coluna] = Back.GREEN + 'X'
+        tabuleiro_tiros[linha][coluna] = Back.GREEN + 'X'
     else:
         print("errou!\n")
-        tabuleiro_tiros[linha][coluna] = 'O'
+        tabuleiro_tiros[linha][coluna] = Back.RED +'O'
 
 def ataque_ia(tabuleiro_alvo, tabuleiro_tiros):
     while True:
         linha = random.randint(0, len(tabuleiro_alvo) - 1)
         coluna = random.randint(0, len(tabuleiro_alvo) - 1)
-        if tabuleiro_tiros[linha][coluna] == '~':
+        if tabuleiro_tiros[linha][coluna] == Back.BLUE + '~':
             break
     print("maquina atacou na posição:", linha + 1, NumeroPLetra(coluna))
     if tabuleiro_alvo[linha][coluna] == 'n':
         print("maquina acertou!\n")
-        tabuleiro_alvo[linha][coluna] = 'X'
-        tabuleiro_tiros[linha][coluna] = 'X'
+        tabuleiro_alvo[linha][coluna] = Back.GREEN + 'X'
+        tabuleiro_tiros[linha][coluna] = Back.GREEN + 'X'
     else:
         print("maquina errou!\n")
-        tabuleiro_tiros[linha][coluna] = 'O'
+        tabuleiro_tiros[linha][coluna] = Back.RED + 'O'
 
 def main():
     tamanho, modo = menu()
